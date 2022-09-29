@@ -4,7 +4,7 @@ package com.example.huahuoimg.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.huahuoimg.mapper.ImgsMapper;
-import com.example.huahuoimg.config.pojo.Imgs;
+import com.example.huahuoimg.pojo.Imgs;
 import com.example.huahuoimg.service.ImgsService;
 import com.example.huahuoimg.service.QiniuService;
 import com.example.huahuoimg.common.R;
@@ -54,6 +54,7 @@ public class ImgController {
             imgs.setCreateTime(LocalDateTime.now());
             imgs.setName(UrlUtil.removePrefix(url, prefix));
             imgs.setFileKey(UrlUtil.removePrefix(url, prefix));
+            imgs.setUpdateTime(LocalDateTime.now());
             imgs.setMiniurl(url + form);
             imgsService.save(imgs);
             return R.success(url, MdUrl);
@@ -78,6 +79,7 @@ public class ImgController {
     public R<String> update(@RequestParam Integer id, @RequestParam String name) {
         Imgs img = imgsService.getById(id);
         img.setName(name);
+        img.setUpdateTime(LocalDateTime.now());
         imgsService.updateById(img);
         return R.success("修改成功！");
     }
@@ -86,7 +88,7 @@ public class ImgController {
     public R<Page> page(int page, int pageSize) {
         Page<Imgs> imgsPage = new Page<>(page, pageSize);
         LambdaQueryWrapper<Imgs> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.orderByDesc(Imgs::getCreateTime);
+        queryWrapper.orderByDesc(Imgs::getUpdateTime);
         imgsService.page(imgsPage,queryWrapper);
         return R.success(imgsPage);
     }

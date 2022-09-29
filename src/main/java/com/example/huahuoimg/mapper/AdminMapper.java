@@ -1,6 +1,6 @@
 package com.example.huahuoimg.mapper;
 
-import com.example.huahuoimg.config.pojo.Admin;
+import com.example.huahuoimg.pojo.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

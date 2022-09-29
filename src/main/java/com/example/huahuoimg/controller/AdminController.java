@@ -2,7 +2,7 @@ package com.example.huahuoimg.controller;
 
 import com.example.huahuoimg.common.R;
 import com.example.huahuoimg.mapper.AdminMapper;
-import com.example.huahuoimg.config.pojo.Admin;
+import com.example.huahuoimg.pojo.Admin;
 import com.example.huahuoimg.service.AdminService;
 import com.example.huahuoimg.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;

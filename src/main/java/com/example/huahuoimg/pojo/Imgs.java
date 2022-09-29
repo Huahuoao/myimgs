@@ -1,4 +1,4 @@
-package com.example.huahuoimg.config.pojo;
+package com.example.huahuoimg.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -57,6 +57,12 @@ public class Imgs implements Serializable {
     @TableField(value = "name")
     private String name;
 
+    /**
+     * 
+     */
+    @TableField(value = "update_time")
+    private LocalDateTime updateTime;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -78,7 +84,8 @@ public class Imgs implements Serializable {
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getMiniurl() == null ? other.getMiniurl() == null : this.getMiniurl().equals(other.getMiniurl()))
             && (this.getFileKey() == null ? other.getFileKey() == null : this.getFileKey().equals(other.getFileKey()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
 
     @Override
@@ -92,6 +99,7 @@ public class Imgs implements Serializable {
         result = prime * result + ((getMiniurl() == null) ? 0 : getMiniurl().hashCode());
         result = prime * result + ((getFileKey() == null) ? 0 : getFileKey().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
     }
 
@@ -108,6 +116,7 @@ public class Imgs implements Serializable {
         sb.append(", miniurl=").append(miniurl);
         sb.append(", fileKey=").append(fileKey);
         sb.append(", name=").append(name);
+        sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

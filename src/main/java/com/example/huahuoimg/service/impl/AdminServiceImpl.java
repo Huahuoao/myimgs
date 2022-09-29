@@ -1,7 +1,7 @@
 package com.example.huahuoimg.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.huahuoimg.config.pojo.Admin;
+import com.example.huahuoimg.pojo.Admin;
 import com.example.huahuoimg.service.AdminService;
 import com.example.huahuoimg.mapper.AdminMapper;
 import com.example.huahuoimg.utils.JWTUtils;

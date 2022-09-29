@@ -1,7 +1,7 @@
 package com.example.huahuoimg.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.huahuoimg.config.pojo.Imgs;
+import com.example.huahuoimg.pojo.Imgs;
 import com.example.huahuoimg.service.ImgsService;
 import com.example.huahuoimg.mapper.ImgsMapper;
 import org.springframework.stereotype.Service;

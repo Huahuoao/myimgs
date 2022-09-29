@@ -1,6 +1,6 @@
 package com.example.huahuoimg.service;
 
-import com.example.huahuoimg.config.pojo.Imgs;
+import com.example.huahuoimg.pojo.Imgs;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

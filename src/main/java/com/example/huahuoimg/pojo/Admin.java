@@ -1,4 +1,4 @@
-package com.example.huahuoimg.config.pojo;
+package com.example.huahuoimg.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
