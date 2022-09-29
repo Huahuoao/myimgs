@@ -30,6 +30,6 @@ jwt:
   header: "Authorization" #token返回头部
   tokenPrefix: "Bearer " #token前缀
   secret: "qwertyuiop7418520" #密钥
-  expireTime: 120 #token有效时间 (分钟) 建议一小时以上
+  expireTime: 600 #token有效时间 (分钟) 建议一小时以上
 
 
