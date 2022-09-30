@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -30,7 +31,7 @@ import java.util.List;
 
 @ComponentScan(basePackages = "com.example.huahuoimg")
 public class WebMvcConfig extends WebMvcConfigurationSupport {
-
+    static final String[] ORIGINS = new String[] {"GET", "POST", "PUT", "DELETE","OPTIONS"};
     /**
      * 设置静态资源映射
      *
@@ -80,6 +81,24 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         converters.add(0, messageConverter);
     }
 
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+//        所有的当前站点的请求地址，都支持跨域访问。
+        registry.addMapping("/**")
+                //是否发送Cookie
+                .allowCredentials(true)
+                //放行哪些原始域
+                .allowedOriginPatterns("*")
+                //当前站点支持的跨域请求类型是什么
+                .allowedMethods(ORIGINS)
+                //	允许请求头中的header，默认都支持
+                .allowedHeaders("*")
+                //响应头中允许访问的header，默认为空
+                .exposedHeaders("*")
+                //预请求的结果的有效期，默认30分钟,这里为一天
+                .maxAge(24 * 60 * 60);
+    }
     @Bean
     public Docket createRestApi() {
         // 文档类型
