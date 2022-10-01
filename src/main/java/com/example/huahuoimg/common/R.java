@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,7 +19,7 @@ public class R<T> implements Serializable {
     private String msg; //错误信息
 
     private T data; //数据
-
+    private List<T> list;
     private Map map = new HashMap(); //动态数据
 
     public static <T> R<T> success(T object) {
@@ -27,7 +28,12 @@ public class R<T> implements Serializable {
         r.code = 200;
         return r;
     }
-
+    public static <T> R<T> success(List<T> list) {
+        R<T> r = new R<T>();
+        r.code = 200;
+        r.list=list;
+        return r;
+    }
 
     public static <T> R<T> success(T object,String msg) {
         R<T> r = new R<T>();

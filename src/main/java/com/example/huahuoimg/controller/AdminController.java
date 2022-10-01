@@ -5,6 +5,8 @@ import com.example.huahuoimg.mapper.AdminMapper;
 import com.example.huahuoimg.pojo.Admin;
 import com.example.huahuoimg.service.AdminService;
 import com.example.huahuoimg.utils.JWTUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin")
+@Api("管理员控制")
 public class AdminController {
     @Autowired
     private AdminService adminService;
@@ -26,6 +29,7 @@ public class AdminController {
 
 
     @PostMapping("/login")
+    @ApiOperation("登陆接口")
     public R<Admin> login(@RequestBody Admin admin, HttpServletResponse response) {
         Map<String, Object> map = adminService.login(admin);
 

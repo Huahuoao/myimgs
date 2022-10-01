@@ -82,7 +82,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     }
 
 
-    @Override //跨
+    @Override //
     public void addCorsMappings(CorsRegistry registry) {
 //        所有的当前站点的请求地址，都支持跨域访问。
         registry.addMapping("/**")
